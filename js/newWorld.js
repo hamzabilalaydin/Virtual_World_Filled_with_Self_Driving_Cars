@@ -60,7 +60,7 @@ class World {
         lerp(bottom, top, Math.random())
       );
 
-      //check if tree inside or nearby buildin/ road
+      // check if tree inside or nearby building / road
       let keep = true;
       for (const poly of illegalPolys) {
         if (
@@ -72,7 +72,7 @@ class World {
         }
       }
 
-      //check if tree too close to other trees
+      // check if tree too close to other trees
       if (keep) {
         for (const tree of trees) {
           if (distance(tree, p) < this.treeSize) {
@@ -82,7 +82,7 @@ class World {
         }
       }
 
-      //avoiding trees in the middle of nowhere
+      // avoiding trees in the middle of nowhere
       if (keep) {
         let closeToSomething = false;
         for (const poly of illegalPolys) {
@@ -171,20 +171,15 @@ class World {
     for (const env of this.envelopes) {
       env.draw(ctx, { fill: "#BBB", stroke: "#BBB", lineWidth: 15 });
     }
-
     for (const seg of this.graph.segments) {
       seg.draw(ctx, { color: "white", width: 4, dash: [10, 10] });
     }
-
     for (const seg of this.roadBorders) {
       seg.draw(ctx, { color: "white", width: 4 });
     }
 
     for (const tree of this.trees) {
-      tree.draw(ctx, {
-        size: this.treeSize,
-        color: "rgba(50, 50, 50, 0.7)",
-      });
+      tree.draw(ctx, { size: this.treeSize, color: "rgba(0,0,0,0.5)" });
     }
     for (const bld of this.buildings) {
       bld.draw(ctx);

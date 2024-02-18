@@ -26,6 +26,8 @@ class Envelope {
   }
 
   draw(ctx, options) {
+    // console.log(this.poly);
+    // console.log(this.poly.points);
     this.poly.draw(ctx, options);
   }
 }
